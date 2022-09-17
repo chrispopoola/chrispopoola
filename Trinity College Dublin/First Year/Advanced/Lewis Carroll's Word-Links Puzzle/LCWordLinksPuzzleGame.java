@@ -53,6 +53,7 @@
  Total Mark out of 100 (Add all the previous marks):	100
 */
 package introToProgramming;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -61,25 +62,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class LCWordLinksPuzzleGame 
-{
+public class LCWordLinksPuzzleGame {
+	
 	Scanner Input = new Scanner (System.in);
 	public static String[] DICTIONARY = new String [658964];
 
-	public static void main (String [] args) throws IOException
-	{
+	public static void main (String [] args) throws IOException {
+		
 		File textFile = new File ("/Users/chrispopoola/Documents/words.txt");
 		ArrayList <String> dictionary = readDictionary(textFile);
 		moveArrayListIntoArray(DICTIONARY, dictionary);
 		
 		boolean finished = false;
-		do 
-		{
+		do {
 			ArrayList <String> userList = readWordList();
-			if(userList.get(0) == "")
+			if (userList.get(0) == "")
 				finished = true;
-			else
-			{
+			else {
 				boolean validChain = isWordChain(userList);
 				if (validChain == true)
 					System.out.println("Valid chain of words from Lewis Carroll's word-links game.");
@@ -90,14 +89,13 @@ public class LCWordLinksPuzzleGame
 		while (!finished);
 	}
 	
-	public static void moveArrayListIntoArray(String[] StrArr, ArrayList<String> Arrlst) 
-	{
+	public static void moveArrayListIntoArray(String[] StrArr, ArrayList<String> Arrlst) {
 		for (int i = 0; i < StrArr.length; i++) 
 			StrArr[i] = Arrlst.get(i);
 	}
 	
-	public static ArrayList <String> readDictionary (File textFile) throws IOException 
-	{
+	public static ArrayList <String> readDictionary (File textFile) throws IOException {
+		
 		ArrayList <String> Dictionary = new ArrayList <String>();
 		BufferedReader bufferedReader = new BufferedReader(new FileReader(textFile));
 		String word;
@@ -109,8 +107,8 @@ public class LCWordLinksPuzzleGame
 		return Dictionary;	
 	}
 	
-	public static ArrayList<String> readWordList ()
-	{
+	public static ArrayList<String> readWordList () {
+		
 		System.out.println("Enter a comma separated list of words (or an empty list to quit):");
 		Scanner Input = new Scanner (System.in);
 		String userInputLine = Input.nextLine();
@@ -122,10 +120,8 @@ public class LCWordLinksPuzzleGame
 		String lastWord = "";
 		int finalIndex = 1;
 		
-		for (int i = 0; i < userInputLine.length(); i++) 
-		{
-			if (userInputLine.charAt(i) == ',') 
-			{
+		for (int i = 0; i < userInputLine.length(); i++) {
+			if (userInputLine.charAt(i) == ',') {
 				if (userInputLine.charAt(i + 1) == ' ')
 					i += 1;
 				wordList.add(word);
@@ -144,21 +140,17 @@ public class LCWordLinksPuzzleGame
 		return wordList;
 	}
 	
-	public static boolean isUniqueList (ArrayList <String> userInput)
-	{
+	public static boolean isUniqueList (ArrayList <String> userInput) {
 		boolean isUnique = true;
-		for (int i = 1; i < userInput.size(); i++)
-			{	
+		for (int i = 1; i < userInput.size(); i++) {	
 				if (userInput.get(i).equals(userInput.get(i-1)))
 					isUnique = false;
 			}
 		return isUnique;
 	}
 	
-	public static boolean isEnglishWord (String word)
-	{
+	public static boolean isEnglishWord (String word) {
 		boolean englishWord = false;
-		
 		int search = Arrays.binarySearch(DICTIONARY, word);
 		
 		if (search >= 0)
@@ -166,16 +158,13 @@ public class LCWordLinksPuzzleGame
 		return englishWord ;
 	}
 	
-	public static boolean isDifferentByOne(String word1, String word2) 
-	{
-		boolean differentByOne = false;
+	public static boolean isDifferentByOne(String word1, String word2) {
 		
+		boolean differentByOne = false;
 		int sameCharCount = 0;
 		
-		if (word1.length() == word2.length()) 
-		{
-			for (int index = 0; index < word1.length(); index++) 
-			{
+		if (word1.length() == word2.length()) {
+			for (int index = 0; index < word1.length(); index++) {
 				if (word1.charAt(index) == word2.charAt(index))
 					sameCharCount++;
 			}
@@ -187,29 +176,24 @@ public class LCWordLinksPuzzleGame
 		return differentByOne;
 	}
 	
-	public static boolean isWordChain(ArrayList<String> userInput) 
-	{
+	public static boolean isWordChain(ArrayList<String> userInput) {
 		
 		boolean wordChain = false;
 		boolean realWord = true; 
 		boolean differentByOne = true;
 		
-		if (isUniqueList(userInput) == true) 
-		{
-			for (int index = 1; index < userInput.size(); index++) 
-			{
+		if (isUniqueList(userInput) == true) {
+			for (int index = 1; index < userInput.size(); index++) {
 				String word = userInput.get(index);
 				if (isEnglishWord(word) != true)
 					realWord = false;
 
 				if (isDifferentByOne(userInput.get(index - 1), userInput.get(index)) != true)
 					differentByOne = false;
-
 			}
 		}
 		if (realWord == true && differentByOne == true)
 			wordChain = true;
 		return wordChain;
 	}
-
 }
