@@ -1,7 +1,7 @@
 package introToProgramming;
 
-public interface Connect4Grid 
-{
+public interface Connect4Grid {
+	
 	public void emptyGrid();
 	public String toString();
 	public boolean isValidColumn(int column);
