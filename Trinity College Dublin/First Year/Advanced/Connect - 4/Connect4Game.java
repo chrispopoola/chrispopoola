@@ -31,8 +31,8 @@ package introToProgramming;
 
 import java.util.Scanner;
 
-public class Connect4Game
-{
+public class Connect4Game {
+	
 	public static final char PLAYER_ONE_PIECE = '+';
 	public static final char PLAYER_TWO_PIECE = 'o';
 	static ConnectPlayer PlayerOne;
@@ -42,18 +42,16 @@ public class Connect4Game
 	static Connect4Grid2DArray game = new Connect4Grid2DArray();
 
 
-	public static void main (String [] args)
-	{
+	public static void main (String [] args) {
 		boolean finished = false;
 
-		while (!finished)
-		{
+		while (!finished) {
 			game.emptyGrid();
 			String playerOneAnswer = "";
 			String playerTwoAnswer = "";
 
-			while (!playerOneAnswer.equalsIgnoreCase("human") && !playerOneAnswer.equalsIgnoreCase("AI") && !playerOneAnswer.equalsIgnoreCase("quit"))
-			{
+			while (!playerOneAnswer.equalsIgnoreCase("human") && !playerOneAnswer.equalsIgnoreCase("AI") && !playerOneAnswer.equalsIgnoreCase("quit")) {
+				
 				System.out.print("Please enter what you would like Player One to be, 'Human' or 'AI' player or you can 'quit'. ");
 				playerOneAnswer = Input.next();
 				
@@ -66,8 +64,7 @@ public class Connect4Game
 				else if (playerOneAnswer.equalsIgnoreCase("quit"))
 					finished = true;
 			}
-			while (!playerTwoAnswer.equalsIgnoreCase("human") && !playerTwoAnswer.equalsIgnoreCase("AI") && !playerTwoAnswer.equalsIgnoreCase("quit") && !playerOneAnswer.equalsIgnoreCase("quit"))
-			{
+			while (!playerTwoAnswer.equalsIgnoreCase("human") && !playerTwoAnswer.equalsIgnoreCase("AI") && !playerTwoAnswer.equalsIgnoreCase("quit") && !playerOneAnswer.equalsIgnoreCase("quit")) {
 				System.out.print("Please enter what you would like Player Two to be, 'Human' or 'AI' player or you can 'quit'. ");
 				playerTwoAnswer = Input.next();
 
@@ -81,18 +78,16 @@ public class Connect4Game
 					finished = true;
 			}
 
-			if (!finished)
-			{
+			if (!finished) {
 				System.out.print(game.toString());
-				while (!game.didLastPieceConnect4() && !game.isGridFull())
-				{
+				
+				while (!game.didLastPieceConnect4() && !game.isGridFull()) {
+					
 					boolean validColumn = false;
-
-					while (!validColumn)
-					{
+					while (!validColumn) {
 						int P1Column = PlayerOne.columnToPick();
-						if (game.isValidColumn(P1Column))
-						{
+						
+						if (game.isValidColumn(P1Column)) {
 							validColumn = true;
 							game.dropPiece(PlayerOne, P1Column);
 							System.out.print("\nPlayer One places piece: " + PlayerOne.getPiece() + " in column " + P1Column + ".");
@@ -104,14 +99,11 @@ public class Connect4Game
 					System.out.print(game.toString());
 					validColumn = false;
 					
-					if (!game.didLastPieceConnect4())
-					{
-						while (!validColumn)
-						{
+					if (!game.didLastPieceConnect4()) {
+						while (!validColumn) {
 							int P2Column = PlayerTwo.columnToPick();
 							
-							if (game.isValidColumn(P2Column))
-							{
+							if (game.isValidColumn(P2Column)) {
 								validColumn = true;
 								game.dropPiece(PlayerTwo, P2Column);
 								System.out.print("\nPlayer Two places piece: " + PlayerTwo.getPiece() + " in column " + P2Column + ".");
