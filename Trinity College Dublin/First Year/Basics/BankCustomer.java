@@ -10,47 +10,38 @@ public class BankCustomer {
 	private String customerAddress;
 	private String customerDateOfBirth;
 
-	public  String getName () 
-	{
+	public  String getName () {
 		String name = Input.next();
 		return name;
 	}
-	public int getAccountNumber () 
-	{
+	public int getAccountNumber () {
 		int accountNumber = Input.nextInt();
 		return accountNumber;
 	}
-	public String getAddress () 
-	{
+	public String getAddress () {
 		String address = Input.next();
 		return address;
 	}
-	public String getDateOfBirth () 
-	{
+	public String getDateOfBirth () {
 		customerDateOfBirth = Input.next();
 		return customerDateOfBirth;
 	}
 
-	public void setName (String name)
-	{
+	public void setName (String name) {
 		customerName = name;
 	}
-	public void setAccountNumber (int accountNumber)
-	{
+	public void setAccountNumber (int accountNumber) {
 		customerAccountNumber = accountNumber;
 	}
-	public void setCustomerAddress (String address)
-	{
+	public void setCustomerAddress (String address) {
 		customerAddress = address;
 	}
-	public void setDateOfBirth (String dateOfBirth)
-	{
+	public void setDateOfBirth (String dateOfBirth) {
 		customerDateOfBirth = dateOfBirth;
 	}
 
 
-	public void main () 
-	{
+	public void main () {
 
 	//	BankCustomer a = new BankCustomer ();
 
