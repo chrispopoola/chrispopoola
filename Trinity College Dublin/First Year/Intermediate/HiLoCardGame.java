@@ -37,14 +37,13 @@
    Total Mark out of 100 (Add all the previous marks):	100
  */
 package introToProgramming;
+
 import java.util.Random;
 import java.util.Scanner;
 
 public class HiLoCardGame {
 
-
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 
 		Scanner Input = new Scanner (System.in);	
 
@@ -62,22 +61,21 @@ public class HiLoCardGame {
 
 		String firstCard = Integer.toString(currentCard);
 
-		if (firstCard.contains("11")) {
+		if (firstCard.contains("11"))
 			firstCard = "Jack";
-		}
-		else if (firstCard.contains("12")) {
+		
+		else if (firstCard.contains("12"))
 			firstCard = "Queen";
-		}
-		else if (firstCard.contains("13")) {
+		
+		else if (firstCard.contains("13"))
 			firstCard = "King";
-		}
-		else if (firstCard.contains("1")) {
+		
+		else if (firstCard.contains("1"))
 			firstCard = "Ace";
-		}
+		
 
 		System.out.print("The card is a " + firstCard + ". ");
 		System.out.print("Do you think the next card is higher, lower or equal to this card. ");
-
 		int numberOfSuccesses = 0;
 
 		do {
@@ -86,22 +84,20 @@ public class HiLoCardGame {
 			Random generatorNewCard = new Random();
 			int newCard = generatorNewCard.nextInt(CARD_MAX_VALUE)+1;
 
-
 			String computerOutput = Integer.toString(newCard);
 
-			if (computerOutput.contains("11")) {
+			if (computerOutput.contains("11")) 
 				computerOutput = "Jack";
-			}
-			else if (computerOutput.contains("12")) {
+			
+			else if (computerOutput.contains("12")) 
 				computerOutput = "Queen";
-			}
-			else if (computerOutput.contains("13")) {
+			
+			else if (computerOutput.contains("13")) 
 				computerOutput = "King";
-			}
-			else if (computerOutput.contains("1")) {
+			
+			else if (computerOutput.contains("1")) 
 				computerOutput = "Ace";
-			}
-
+			
 
 			if (userGuessAttempt.contains(USER_PICKED_HIGHER) && newCard > currentCard) {
 				System.out.print("You were right. Have another go. The card is a " + computerOutput + ". " );
@@ -139,15 +135,12 @@ public class HiLoCardGame {
 				currentCard = newCard;
 			}
 		}
-		while (numberOfSuccesses < 4 || youHaveLost == false); {
-		}
+		while (numberOfSuccesses < 4 || youHaveLost == false); {}
 
-		if (numberOfSuccesses == 4) {
+		if (numberOfSuccesses == 4) 
 			System.out.println("Congratulations, You have guessed correctly 4 times in a row, therefore you have won the game. ");
-		}
-		else {
-
-		}
+		else {}
+		
 		Input.close();
 	}
 }
