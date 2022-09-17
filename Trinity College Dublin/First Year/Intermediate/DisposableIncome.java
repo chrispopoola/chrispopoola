@@ -38,16 +38,16 @@ package introToProgramming;
 
 import java.util.Scanner;
 import java.lang.Math;
-public class DisposableIncome
-{
+
+public class DisposableIncome {
+	
 	public static final double PERCENTAGE_TAX = 0.65;
 	public static final double AVERAGE_MONTHLY_DISPOSABLE_INCOME = 500.00;
 	public static final double FIFTY_PERCENT_GREATER_THAN_AVERAGE_MONTHLY_DISPOSABLE_INCOME = 1.5;
 	public static final double FIFTY_PERCENT_LESS_THAN_AVERAGE_MONTHLY_DISPOSABLE_INCOME = .5;
 
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 
 		Scanner Input = new Scanner (System.in);
 
@@ -63,40 +63,31 @@ public class DisposableIncome
 		System.out.print("How much do you spend on food per month? €");
 		double foodCost = Input.nextDouble();
 
-
 		double netIncome = (grossIncome * PERCENTAGE_TAX);
-
 		double monthlyDisposableIncome = (netIncome - rentMortgage - commuteCost - foodCost);
-
 		double percentageDisposableIncome = (monthlyDisposableIncome/ grossIncome) * 100; 
 
 		System.out.println("Your monthly disposable income is €" + monthlyDisposableIncome + " which is " + Math.round(percentageDisposableIncome) + "% of your salary.");
 
 
-		if (monthlyDisposableIncome > AVERAGE_MONTHLY_DISPOSABLE_INCOME * FIFTY_PERCENT_GREATER_THAN_AVERAGE_MONTHLY_DISPOSABLE_INCOME) {
-
+		if (monthlyDisposableIncome > AVERAGE_MONTHLY_DISPOSABLE_INCOME * FIFTY_PERCENT_GREATER_THAN_AVERAGE_MONTHLY_DISPOSABLE_INCOME)
 			System.out.print("Your monthly disposable income is much more than the average. ");
-		}
-		else if (monthlyDisposableIncome > AVERAGE_MONTHLY_DISPOSABLE_INCOME) {
-
+		
+		else if (monthlyDisposableIncome > AVERAGE_MONTHLY_DISPOSABLE_INCOME)
 			System.out.print("Your monthly disposable income is more than the average. ");
-		}	
-		else if (monthlyDisposableIncome == AVERAGE_MONTHLY_DISPOSABLE_INCOME) {
-
+		
+		else if (monthlyDisposableIncome == AVERAGE_MONTHLY_DISPOSABLE_INCOME)
 			System.out.print("Your monthly disposable income is equivalent to the average. ");
-		}
-		else if (monthlyDisposableIncome < AVERAGE_MONTHLY_DISPOSABLE_INCOME) {
 
+		else if (monthlyDisposableIncome < AVERAGE_MONTHLY_DISPOSABLE_INCOME)
 			System.out.print("Your monthly disposable income is less than the average. ");
-		}
-		else if (monthlyDisposableIncome < AVERAGE_MONTHLY_DISPOSABLE_INCOME * FIFTY_PERCENT_LESS_THAN_AVERAGE_MONTHLY_DISPOSABLE_INCOME) {
-
+		
+		else if (monthlyDisposableIncome < AVERAGE_MONTHLY_DISPOSABLE_INCOME * FIFTY_PERCENT_LESS_THAN_AVERAGE_MONTHLY_DISPOSABLE_INCOME)
 			System.out.print("Your monthly disposable income is much lesser than the average. ");
-		}
-		else if (monthlyDisposableIncome <= 0.00) {
 
+		else if (monthlyDisposableIncome <= 0.00)
 			System.out.print("You have no monthly disposable income. ");
-		}			
+		
 		Input.close();
 	}
 }
