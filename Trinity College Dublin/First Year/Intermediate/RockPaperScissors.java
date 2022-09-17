@@ -30,7 +30,8 @@ package introToProgramming;
    Total Mark out of 100 (Add all the previous marks): 100
  */
 import java.util.Scanner;
-import java.util.Random; 
+import java.util.Random;
+
 public class RockPaperScissors {
 
 	public static void main(String[] args) {
