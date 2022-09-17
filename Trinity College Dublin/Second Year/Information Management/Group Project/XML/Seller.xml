@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE databaseSeller SYSTEM "Seller.dtd">
+<databaseSeller>
+	<Seller id="sl1">
+		<User.fullname> Mark Jacobs </User.fullname>
+		<User.isLoggedIn> True </User.isLoggedIn>
+		<User.account>
+			<Account refid="a9"/>
+		</User.account>
+		<Seller.shops>
+			<Shop refid="s3"/>
+			<Shop refid="s4"/>
+		</Seller.shops>
+		<Seller.onlineCheckoutId> 22857 </Seller.onlineCheckoutId>
+	</Seller>
+	<Seller id="sl2">
+		<User.fullname>David O.</User.fullname>
+		<User.isLoggedIn>True</User.isLoggedIn>
+		<User.account>
+			<Account refid="a7"/>
+		</User.account>
+		<Seller.shops>
+			<Shop refid="s1"/>
+			<Shop refid="s2"/>
+		</Seller.shops>
+		<Seller.onlineCheckoutId> 00157 </Seller.onlineCheckoutId>
+	</Seller>
+</databaseSeller>

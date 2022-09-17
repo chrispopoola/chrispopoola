@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE databaseCustomer SYSTEM "Customer.dtd">
+<databaseCustomer>
+	<Customer id="cs1">
+		<User.fullname> Sam Samuels </User.fullname>
+		<User.isLoggedIn> True </User.isLoggedIn>
+		<User.account>
+			<Account refid="a11"/>
+		</User.account>
+		<Customer.PrefCurrency>Euro</Customer.PrefCurrency>
+		<Customer.PrefPayMethod> Visa </Customer.PrefPayMethod>
+		<Customer.Wishlist>
+			<Product refid="p1753"/>
+			<Product refid="p1757"/>
+		</Customer.Wishlist>
+		<Customer.orders>
+			<Order refid="O735"/>
+			<Order refid="O736"/>
+		</Customer.orders>
+	</Customer>
+	<Customer id="cs2">
+		<User.fullname> Steve Stevenson </User.fullname>
+		<User.isLoggedIn> True </User.isLoggedIn>
+		<User.account>
+			<Account refid="a13"/>
+		</User.account>
+		<Customer.PrefCurrency> United States Dollar </Customer.PrefCurrency>
+		<Customer.PrefPayMethod> PayPal </Customer.PrefPayMethod>
+		<Customer.Wishlist>
+			<Product refid="p228"/>
+			<Product refid="p991"/>
+			<Product refid="p123"/>
+		</Customer.Wishlist>
+		<Customer.orders>
+			<Order refid="O737"/>
+			<Order refid="O738"/>
+		</Customer.orders>
+	</Customer>
+  	<Customer id="cs3">
+		<User.fullname> Vladimir Kozlov </User.fullname>
+		<User.isLoggedIn> True </User.isLoggedIn>
+		<User.account>
+			<Account refid="a14"/>
+		</User.account>
+		<Customer.PrefCurrency>Rubbles</Customer.PrefCurrency>
+		<Customer.PrefPayMethod> Visa </Customer.PrefPayMethod>
+		<Customer.Wishlist>
+			<Product refid="p228"/>
+		</Customer.Wishlist>
+		<Customer.orders>
+      <Order refid="O739"/>
+		</Customer.orders>
+	</Customer>
+</databaseCustomer>

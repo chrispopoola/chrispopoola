@@ -1,0 +1,10 @@
+<!ELEMENT databaseUser (User*)>
+<!ELEMENT User (User.fullName?,User.isLoggedIn?,User.account )>
+<!ATTLIST User
+ id CDATA #REQUIRED>
+<!ELEMENT User.fullName (#PCDATA)>
+<!ELEMENT User.isLoggedIn (#PCDATA)>
+<!ELEMENT User.account (Account)>  
+<!ELEMENT Account EMPTY>
+<!ATTLIST Account refid CDATA #REQUIRED>
+  
