@@ -51,18 +51,16 @@ public class RockPaperScissors {
 
 		Random  generator = new Random();
 
-
 		for (int roundNumber = 0; roundNumber < MAX_NUMBER_OF_ROUNDS; roundNumber++) {
 			System.out.println("Choose your object. ");
 			userInput = Input.nextInt();
-
 			computerInput = generator.nextInt(MAX_NUMBER)+1;
 
 			if (userInput < MAX_NUMBER && userInput != 0) {
 
-				if (computerInput == ROCK && userInput == ROCK) {
+				if (computerInput == ROCK && userInput == ROCK) 
 					System.out.println("We have drawn because I have chosen Rock. ");
-				}
+				
 				else if (computerInput == ROCK && userInput == PAPER) {
 					System.out.println("You have won this round becuase I have chosen Rock. ");
 					userScore++;
@@ -90,13 +88,13 @@ public class RockPaperScissors {
 					System.out.println("You have lost this round because I have chosen Paper. ");
 					computerScore++;
 				}
-				else if (computerInput == SCISSORS && userInput == SCISSORS) {
+				else if (computerInput == SCISSORS && userInput == SCISSORS) 
 					System.out.println("We have drawn this round because I have chosen Paper. ");
-				}
+				
 			}
-			else {
+			else
 				System.out.println("Invalid Input. You have lost a turn. "); 
-			}
+			
 
 			System.out.println("The final scores are: User: " + userScore + " Computer: " + computerScore + ".");
 		}
