@@ -31,11 +31,11 @@ Comment: Yes it does.
  Total Mark out of 100 (Add all the previous marks):	100
  */
 
-
 package introToProgramming;
+
 import java.util.Scanner;
-public class ChuckALuck 
-{
+
+public class ChuckALuck {
 
 	static Wallet newPlayerWallet = new Wallet();
 	static Dice newGame = new Dice();
@@ -47,18 +47,15 @@ public class ChuckALuck
 	static double money = 0;
 
 	
-	public static void main (String [] args) 
-	{
+	public static void main (String [] args) {
 
 		System.out.print("Welcome to the casino. How much cash do you have? ");
 
-		if (Input.hasNextDouble()) 
-		{
+		if (Input.hasNextDouble()) {
 			double money = Input.nextDouble();
 			newPlayerWallet.put(money);
 
-			do 
-			{
+			do {
 				if (newPlayerWallet.check() <= 0)
 					quit = true;
 
@@ -70,37 +67,29 @@ public class ChuckALuck
 				else if (betType.contains("quit"))
 					quit = true;
 				else 
-				{
 					System.out.print("Invalid input.");
-				}
-
 			}
 			while (quit == false);
-
 		}
 		else
 			System.out.print("Error. Invalid Input. ");
 
-		if (quit == true)
-		{
+		if (quit == true) {
 		//	if (winnings > 0)
 		//		System.out.print("Congratulations, You have made €" + winnings);
 		//	else if (newPlayerWallet.check() < money)
 		//		System.out.print("Unfortunately, You have lost €" + (money - newPlayerWallet.check()));
-			
-			System.out.print(" Unfortunately, you have decided to quit. You have now €" + newPlayerWallet.check() + " in your wallet. ");
-			
+			System.out.print(" Unfortunately, you have decided to quit. You have now €" + newPlayerWallet.check() + " in your wallet. ");	
 		}
 	}
-	public static void ResolveBet (String betType) 
-	{
+	public static void ResolveBet (String betType) {
 
 		String attemptBetType = betType;
 
 		System.out.println( "You have €" + newPlayerWallet.check() + " in your wallet. " );
 		System.out.print(	"How much would you like to bet? ");
-		if (Input.hasNextDouble())
-		{
+		
+		if (Input.hasNextDouble()) {
 			
 			attemptedBetAmount = Input.nextDouble();
 			if (newPlayerWallet.get(attemptedBetAmount) == true) {
@@ -108,63 +97,50 @@ public class ChuckALuck
 				int firstDie = newGame.roll();
 				int secondDie = newGame.roll();
 				int thirdDie = newGame.roll();
-				
-
 				int sumOfThreeDice = firstDie + secondDie + thirdDie;
 
 
-				if ((attemptBetType.equalsIgnoreCase("Triple")) && ((firstDie == secondDie) && (secondDie == thirdDie)) && (firstDie != 1 || firstDie != 6))
-				{
+				if ((attemptBetType.equalsIgnoreCase("Triple")) && ((firstDie == secondDie) && (secondDie == thirdDie)) && (firstDie != 1 || firstDie != 6)) {
 					System.out.println("You rolled a: " + firstDie + ", "+ secondDie + ", & "+ thirdDie + ". ");
 					System.out.println("You have successfully reached the conditions of your bet. :) " );
 					winnings = (attemptedBetAmount * 30);
 					newPlayerWallet.put(winnings + attemptedBetAmount);		
 				}
-				else if (attemptBetType.equalsIgnoreCase("Field") && (sumOfThreeDice < 8 || sumOfThreeDice > 12))
-				{
+				else if (attemptBetType.equalsIgnoreCase("Field") && (sumOfThreeDice < 8 || sumOfThreeDice > 12)) {
 					System.out.print("You rolled a: " + firstDie + ", "+ secondDie + ", & "+ thirdDie + ", which amounts to: " + sumOfThreeDice + ". ");
 					System.out.println("You have successfully reached the conditions of your bet. :) " );
 					wonTheBetOnetoOne = true;
 				}
 				else if ((attemptBetType.equalsIgnoreCase("High")) && (sumOfThreeDice > 10) && ((firstDie < 3) && 
-						(((firstDie == secondDie) && (secondDie != thirdDie)) || ((secondDie == thirdDie) && (firstDie != thirdDie)) || ((firstDie == thirdDie) && (thirdDie != secondDie)))))
-				{
+						(((firstDie == secondDie) && (secondDie != thirdDie)) || ((secondDie == thirdDie) && (firstDie != thirdDie)) || ((firstDie == thirdDie) && (thirdDie != secondDie))))) {
 					System.out.print("You rolled a: " + firstDie + ", " + secondDie + ", & " + thirdDie + ", which amounts to: " + sumOfThreeDice + ". ");
 					System.out.println("You have successfully reached the conditions of your bet. :) " );
 					wonTheBetOnetoOne = true;
 				}
 				else if ((attemptBetType.equalsIgnoreCase("Low")) && (sumOfThreeDice < 11) && (firstDie > 3) && 
-						(((firstDie == secondDie) && (secondDie != thirdDie)) || ((secondDie == thirdDie) && (firstDie != thirdDie)) || ((firstDie == thirdDie) && (thirdDie != secondDie))))
-				{
+						(((firstDie == secondDie) && (secondDie != thirdDie)) || ((secondDie == thirdDie) && (firstDie != thirdDie)) || ((firstDie == thirdDie) && (thirdDie != secondDie)))) {
 					System.out.print("You rolled a : " + firstDie + ", " + secondDie + ", & " + thirdDie + ", which amounts to: " + sumOfThreeDice + ". ");
 					System.out.println("You have successfully reached the conditions of your bet. :) " );
 					wonTheBetOnetoOne = true;
 				}
-				else 
-				{
+				else {
 					System.out.println("You rolled a : " + firstDie + ", " + secondDie + ", & " + thirdDie + ", which amounts to: " + sumOfThreeDice + ". ");
 					System.out.println("Your bet failed to reach the correct conditions. You have lost. :( ");
-
 				}
-				if (wonTheBetOnetoOne == true) 
-				{
+				if (wonTheBetOnetoOne == true) {
 					winnings = attemptedBetAmount * 2;
 					newPlayerWallet.put(winnings);
 				}
-
 				System.out.println("You now have: €" + newPlayerWallet.check() + " left in your wallet. ");
 
 			}
-			else 
-			{
+			else {
 				System.out.println("You have insufficient funds. ");
 				quit = true;
 			}
 		}
 		else
 			System.out.print("Error. Invalid Input. ");
-
 	}
-
 }
 
