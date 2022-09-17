@@ -1,8 +1,8 @@
 package introToProgramming;
+
 import java.util.Scanner;
-
-
 import java.lang.Math;
+
 public class StandardDeviation {
 
 	public static void main(String[] args) 
@@ -20,7 +20,6 @@ public class StandardDeviation {
 
 		double average = (num1 + num2 + num3)/3; 
 
-
 		double deviation1 = ((num1 - average) * (num1 - average))/ 3;
 		deviation1 = Math.sqrt(deviation1);
 
@@ -36,8 +35,6 @@ public class StandardDeviation {
 		System.out.println("Your standard deviation is " + standardDeviation);
 
 		Input.close();
-
-
 
 	}
 
