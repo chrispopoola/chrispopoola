@@ -6,8 +6,7 @@ public class Wallet {
 	private double cash;
 
 	// construct wallet with zero cash
-	public Wallet() 
-	{
+	public Wallet() {
 		cash = 0.0;
 	}
 
